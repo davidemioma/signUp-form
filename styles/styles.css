@@ -1,0 +1,160 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins";
+  font-size: 1.5rem;
+  background: url(../images/bg-intro-mobile.png);
+  background-color: hsl(0, 100%, 74%);
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 8rem 0;
+}
+
+.header {
+  text-align: center;
+}
+
+.header h2 {
+  color: #fff;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.header p {
+  color: #fff;
+}
+
+.plan {
+  background: hsl(248, 32%, 49%);
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.form_group {
+  margin-bottom: 3rem;
+}
+
+.input_grp {
+  padding: 1rem 2rem;
+  display: inline-flex;
+  gap: 1rem;
+  width: 100%;
+  border: 1px solid hsl(246, 25%, 77%);
+}
+
+.input_grp input {
+  outline: 0;
+  flex-grow: 1;
+  width: 0;
+  border: 0;
+  font-size: 1.8rem;
+}
+
+.one.invalid,
+.two.invalid,
+.three.invalid,
+.four.invalid,
+.five.invalid {
+  border: 3px solid red;
+}
+
+.one.valid,
+.two.valid,
+.three.valid,
+.four.valid,
+.five.valid {
+  border: 3px solid green;
+}
+
+.text {
+  color: red;
+  text-align: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn {
+  width: 100%;
+  text-transform: uppercase;
+  background: hsl(154, 59%, 51%);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  border: 0;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.terms {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.link {
+  text-decoration: none;
+  color: hsl(0, 100%, 74%);
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  justify-items: center;
+  gap: 5rem 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header {
+    text-align: left;
+    align-self: center;
+  }
+
+  .plan {
+    padding: 1rem;
+  }
+
+  .plan p {
+    font-size: 1.3rem;
+  }
+}
