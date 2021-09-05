@@ -32,6 +32,8 @@ const five = document.querySelector(".five");
 const rText = document.querySelector(".re-enter_text");
 const icon5 = document.querySelector(".img5");
 
+let isActive = true;
+
 function clearText() {
   if (reEnter.value === "") {
     five.classList.remove("invalid");
@@ -72,5 +74,16 @@ submitBtn.addEventListener("click", function (e) {
   if (reEnter.value !== password.value || reEnter.value === "") {
     e.preventDefault();
     emptyText(five, rText, icon5);
+  }
+
+  if (
+    firstName.value !== "" &&
+    lastName.value !== "" &&
+    email.value.match(pattern) &&
+    password.value !== "" &&
+    reEnter.value !== "" &&
+    reEnter.value === password.value
+  ) {
+    location.reload();
   }
 });
