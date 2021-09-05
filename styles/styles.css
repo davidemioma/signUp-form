@@ -95,14 +95,6 @@ p {
   border: 3px solid red;
 }
 
-.one.valid,
-.two.valid,
-.three.valid,
-.four.valid,
-.five.valid {
-  border: 3px solid green;
-}
-
 .text {
   color: red;
   text-align: right;

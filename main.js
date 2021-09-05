@@ -2,121 +2,75 @@
 
 const submitBtn = document.querySelector(".btn");
 
-function checkFirstName(firstName) {
-  const check = document.querySelector(".one");
-  const text = document.querySelector(".f_text");
-  const errImg = document.querySelector(".img1");
-  if (firstName !== "") {
-    check.classList.remove("invalid");
-    check.classList.add("valid");
-    text.classList.add("hidden");
-    errImg.classList.add("hidden");
-  }
+//first name
+const firstName = document.getElementById("first_name");
+const one = document.querySelector(".one");
+const fText = document.querySelector(".f_text");
+const icon1 = document.querySelector(".img1");
 
-  if (firstName === "") {
-    check.classList.remove("valid");
-    check.classList.add("invalid");
-    text.classList.remove("hidden");
-    errImg.classList.remove("hidden");
+//Last name
+const lastName = document.getElementById("last_name");
+const two = document.querySelector(".two");
+const lText = document.querySelector(".l_text");
+const icon2 = document.querySelector(".img2");
+
+//email
+const email = document.getElementById("email");
+const mailCheck = document.querySelector(".three");
+const mailText = document.querySelector(".mail_text");
+const icon3 = document.querySelector(".img3");
+
+//password
+const password = document.getElementById("password");
+const four = document.querySelector(".four");
+const pText = document.querySelector(".password_text");
+const icon4 = document.querySelector(".img4");
+
+//Re-enter
+const reEnter = document.getElementById("re-enter");
+const five = document.querySelector(".five");
+const rText = document.querySelector(".re-enter_text");
+const icon5 = document.querySelector(".img5");
+
+function clearText() {
+  if (reEnter.value === "") {
+    five.classList.remove("invalid");
+    rText.classList.add("hidden");
+    icon5.classList.add("hidden");
   }
 }
 
-function checkLastName(lastName) {
-  const check = document.querySelector(".two");
-  const text = document.querySelector(".l_text");
-  const errImg = document.querySelector(".img2");
-  if (lastName !== "") {
-    check.classList.remove("invalid");
-    check.classList.add("valid");
-    text.classList.add("hidden");
-    errImg.classList.add("hidden");
-  }
-
-  if (lastName === "") {
-    check.classList.remove("valid");
-    check.classList.add("invalid");
-    text.classList.remove("hidden");
-    errImg.classList.remove("hidden");
-  }
+function emptyText(input, text, icon) {
+  input.classList.add("invalid");
+  text.classList.remove("hidden");
+  icon.classList.remove("hidden");
 }
 
-function checkEmail(email) {
+submitBtn.addEventListener("click", function (e) {
   const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-  const check = document.querySelector(".three");
-  const text = document.querySelector(".mail_text");
-  const errImg = document.querySelector(".img3");
-  if (email.match(pattern)) {
-    check.classList.remove("invalid");
-    check.classList.add("valid");
-    text.classList.add("hidden");
-    errImg.classList.add("hidden");
-  }
-  //Else
-  else {
-    check.classList.remove("valid");
-    check.classList.add("invalid");
-    text.classList.remove("hidden");
-    errImg.classList.remove("hidden");
-  }
-}
 
-function checkPassword(password) {
-  const check = document.querySelector(".four");
-  const text = document.querySelector(".password_text");
-  const errImg = document.querySelector(".img4");
-  if (password !== "") {
-    check.classList.remove("invalid");
-    check.classList.add("valid");
-    text.classList.add("hidden");
-    errImg.classList.add("hidden");
+  if (firstName.value === "") {
+    e.preventDefault();
+    emptyText(one, fText, icon1);
   }
 
-  if (password === "") {
-    check.classList.remove("valid");
-    check.classList.add("invalid");
-    text.classList.remove("hidden");
-    errImg.classList.remove("hidden");
-  }
-}
-
-function checkReenterPassword(password, reEnterPassword) {
-  const check = document.querySelector(".five");
-  const text = document.querySelector(".re-enter_text");
-  const errImg = document.querySelector(".img5");
-  if (password !== "" && reEnterPassword === password) {
-    check.classList.remove("invalid");
-    check.classList.add("valid");
-    text.classList.add("hidden");
-    errImg.classList.add("hidden");
+  if (lastName.value === "") {
+    e.preventDefault();
+    emptyText(two, lText, icon2);
   }
 
-  if (password === "" || reEnterPassword !== password) {
-    check.classList.remove("valid");
-    check.classList.add("invalid");
-    text.classList.remove("hidden");
-    errImg.classList.remove("hidden");
+  if (!email.value.match(pattern)) {
+    e.preventDefault();
+    emptyText(mailCheck, mailText, icon3);
   }
-}
 
-submitBtn.addEventListener("click", function () {
-  const firstName = document.getElementById("first_name").value;
-  const lastName = document.getElementById("last_name").value;
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const reEnter = document.getElementById("re-enter").value;
-  checkFirstName(firstName);
-  checkLastName(lastName);
-  checkEmail(email);
-  checkPassword(password);
-  checkReenterPassword(password, reEnter);
+  if (password.value === "") {
+    e.preventDefault();
+    emptyText(four, pText, icon4);
+  }
 
-  //   if (
-  //     firstName !== "" &&
-  //     lastName !== "" &&
-  //     email !== "" &&
-  //     password !== "" &&
-  //     reEnter !== ""
-  //   ) {
-  //     alert("You have subscribed for the free trial");
-  //   }
+  if (reEnter.value !== password.value || reEnter.value === "") {
+    e.preventDefault();
+    emptyText(five, rText, icon5);
+  }
 });
